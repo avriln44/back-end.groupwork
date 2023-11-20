@@ -36,6 +36,6 @@ module.exports.update = async (req, res) => {
 
 module.exports.delete = async (req, res) => {
     await Movie.findByIdAndDelete(req.params.id)
-    req.flash('success', 'Succesfully deleted')
+    req.flash('success', 'Successfully deleted')
     res.redirect('/movie')
 }

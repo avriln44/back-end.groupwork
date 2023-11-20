@@ -25,6 +25,7 @@ module.exports.logout = (req, res, next) => {
         if (err) {
             return next(err);
         }
+        req.flash('success', 'Successfully logged out')
         res.redirect('/movie');
     });
 }
