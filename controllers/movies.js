@@ -30,11 +30,12 @@ module.exports.editForm = async (req, res) => {
 
 module.exports.update = async (req, res) => {
     const movie = await Movie.findByIdAndUpdate(req.params.id, { ...req.body.movie })
-    req.flash('success', 'Successfully updated')
+    req.flash('success', 'Successfully updated movie')
     res.redirect(`/movie/${movie.id}`)
 }
 
 module.exports.delete = async (req, res) => {
     await Movie.findByIdAndDelete(req.params.id)
+    req.flash('success', 'Succesfully deleted')
     res.redirect('/movie')
 }

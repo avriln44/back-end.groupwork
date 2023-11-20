@@ -14,5 +14,6 @@ module.exports.deleteReview = async (req, res) => {
     const { id, reviewId } = req.params
     await Movie.findByIdAndUpdate(id, { $pull: { reviewId } })
     await Review.findByIdAndDelete(reviewId)
+    req.flash('success', 'Succesfully deleted')
     res.redirect(`/movie/${id}`)
 }
