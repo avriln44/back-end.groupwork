@@ -1,0 +1,28 @@
+<% layout('layouts/boilerplate') %>
+    <div class="row">
+        <h1 class="text-center">New Movie</h1>
+        <div class="col-6 offset-3">
+            <form action="/movie" method="POST">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" type="text" id="title" name="movie[title]" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="rating">Rating</label>
+                    <input class="form-control" type="text" id="rating" name="movie[rating]" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="image">Image URL</label>
+                    <input class="form-control" type="text" id="image" name="movie[image]">
+
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" type="text" id="description" name="movie[description]"></textarea>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-success">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
