@@ -11,8 +11,6 @@ const LocalStrategy = require('passport-local')
 const session = require('express-session')
 const flash = require('connect-flash')
 
-const Movie = require('./models/movie')
-const Review = require('./models/review')
 const User = require('./models/user')
 
 const userRoutes = require('./routes/users')
@@ -59,8 +57,6 @@ app.use((req, res, next) => {
     res.locals.currentUser = req.user
     next()
 })
-
-
 
 app.use('/movie', movieRoutes)
 app.use('/movie/:id/reviews', reviewRoutes)
