@@ -16,8 +16,14 @@ module.exports.loginForm = (req, res) => {
     res.render('users/login')
 }
 
-module.exports.login = passport.authenticate('local', { failureFlash: true, failuteRedirect: '/login' }), async (req, res) => {
-    res.redirect('/movie')
+module.exports.login = passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), async (req, res) => {
+    try {
+        req.flash('error', 'Wrong username or password. Try again!')
+        res.redirect('/movie/login')
+    } catch {
+        res.redirect('/movie')
+    }
+
 }
 
 module.exports.logout = (req, res, next) => {
