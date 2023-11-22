@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const Movie = require('../models/movie')
 const movies = require('../controllers/movies')
 
 const isLoggedIn = (req, res, next) => {
+    // If user is not in the database redirect to the login page
     if (!req.isAuthenticated()) {
         return res.redirect('/login')
     }

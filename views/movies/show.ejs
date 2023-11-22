@@ -14,6 +14,7 @@
                         Submitted by <%= movies.author.username %>
                     </h7>
                 </div>
+                <!-- Show delete button if current user is movie's author -->
                 <% if(currentUser && movies.author.equals(currentUser.id)) {%>
                     <div class="card-body">
                         <a href="/movie/<%= movies.id %>/edit" class="card-link btn btn-primary">Edit</a>
@@ -32,6 +33,7 @@
                     <label class="form-label" for="body">Review</label>
                     <textarea class="form-control" name="review[body]" id="body" cols="30" rows="4"></textarea>
                 </div>
+                <!-- Display submit button for review if user is logged in -->
                 <% if(currentUser) {%>
                     <button class="btn btn-success mb-3">Submit</button>
                     <% } %>
