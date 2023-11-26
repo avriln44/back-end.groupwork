@@ -6,9 +6,10 @@ const Review = require('../models/review')
 module.exports.createReview = async (req, res) => {
     const movie = await Movie.findById(req.params.id) // Find movie by id
     const review = new Review(req.body.review) // Create a new Review with the data from the request body
+    review.author = req.user.id
     movie.reviews.push(review) // Add review to movie's review array
-    review.save()
-    movie.save()
+    await review.save()
+    await movie.save()
     res.redirect(`/movie/${movie.id}`)
 }
 

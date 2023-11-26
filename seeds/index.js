@@ -11,8 +11,8 @@ db.once("open", () => {
 
 const movieDB = async () => {
     await Movie.deleteMany({})
-    for (let i = 0; i < 80; i++) {
-        const random = Math.floor(Math.random() * 80)
+    for (let i = 0; i < 6; i++) {
+        const random = Math.floor(Math.random() * 6)
         const randomRating = Math.floor(Math.random() * 70) + 30
         const movie = new Movie({
             author: '6553dc20f186867233a89781',

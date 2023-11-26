@@ -20,7 +20,11 @@ module.exports.new = async (req, res) => {
 
 module.exports.show = async (req, res) => {
     // Find movies by id and populate the reviews and author field
-    const movies = await Movie.findById(req.params.id).populate('reviews').populate('author')
+    const movies = await Movie.findById(req.params.id).populate({
+        path: 'reviews', populate: {
+            path: 'author'
+        }
+    }).populate('author')
     res.render('movies/show', { movies })
 }
 

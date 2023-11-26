@@ -42,10 +42,12 @@ const sessionConfig = {
 }
 app.use(session(sessionConfig))
 app.use(flash())
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.use(express.urlencoded({ extended: true }))
 // Enable method override for PUT and DELETE requests
 app.use(methodOverride('_method'))
+
 // Use passport for authentication
 app.use(passport.initialize())
 app.use(passport.session())
