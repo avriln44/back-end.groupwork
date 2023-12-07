@@ -52,7 +52,7 @@ app.use(methodOverride('_method'))
 app.use(passport.initialize())
 app.use(passport.session())
 
-passport.use(new LocalStrategy(User.authenticate())) //added automatically
+passport.use(new LocalStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
