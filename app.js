@@ -68,6 +68,8 @@ app.use('/movie', movieRoutes)
 app.use('/movie/:id/reviews', reviewRoutes)
 app.use('/', userRoutes)
 
+print('ok')
+
 app.listen(3000, () => {
     console.log('On port 3000')
 })
